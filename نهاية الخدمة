@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>نهاية الخدمة</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            direction: rtl;
+            text-align: center;
+            background-color: #f8f8f8;
+            padding: 40px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .option {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 15px 25px;
+            margin: 15px auto;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .label {
+            font-size: 18px;
+        }
+
+        .toggle-btn {
+            width: 50px;
+            height: 25px;
+            border-radius: 15px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .off {
+            background-color: #e74c3c; /* أحمر */
+        }
+
+        .on {
+            background-color: #2ecc71; /* أخضر */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>نهاية الخدمة</h1>
+
+    <div class="option">
+        <span class="label">تعليم مكة - بنين</span>
+        <button class="toggle-btn off" onclick="toggle(this)">OFF</button>
+    </div>
+
+    <div class="option">
+        <span class="label">تعليم مكة - بنات</span>
+        <button class="toggle-btn off" onclick="toggle(this)">OFF</button>
+    </div>
+
+    <div class="option">
+        <span class="label">تعليم الليث</span>
+        <button class="toggle-btn off" onclick="toggle(this)">OFF</button>
+    </div>
+
+    <div class="option">
+        <span class="label">تعليم القنفذة</span>
+        <button class="toggle-btn off" onclick="toggle(this)">OFF</button>
+    </div>
+
+    <script>
+        function toggle(button) {
+            const allButtons = document.querySelectorAll('.toggle-btn');
+
+            if (button.classList.contains('on')) {
+                // إذا كان الزر مفعلاً، نعيد كل الأزرار للحالة "off"
+                allButtons.forEach(btn => {
+                    btn.classList.remove('on');
+                    btn.classList.add('off');
+                    btn.textContent = "OFF";
+                });
+            } else {
+                // تفعيل الزر المحدد، وإطفاء الباقي
+                allButtons.forEach(btn => {
+                    btn.classList.remove('on');
+                    btn.classList.add('off');
+                    btn.textContent = "OFF";
+                });
+
+                button.classList.remove('off');
+                button.classList.add('on');
+                button.textContent = "ON";
+            }
+        }
+    </script>
+
+</body>
+</html>
